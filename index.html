@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toca el botón</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #000, #222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  h1 {
+    position: absolute;
+    top: 40px;
+    color: white;
+    text-align: center;
+    width: 100%;
+  }
+
+  button {
+    position: absolute;
+    padding: 20px 30px;
+    font-size: 22px;
+    border: none;
+    border-radius: 12px;
+    background: red;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+</style>
+</head>
+<body>
+
+<h1>Toca el botón 😏</h1>
+<button id="btn">TÓCAME</button>
+
+<script>
+  const btn = document.getElementById("btn");
+
+  function moverBoton() {
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+  }
+
+  btn.addEventListener("touchstart", moverBoton);
+  btn.addEventListener("mouseover", moverBoton);
+
+  btn.addEventListener("click", () => {
+    document.body.innerHTML = "<h1 style='color:lime'>JAJAJA 🤡 CAÍSTE</h1>";
+    setTimeout(() => {
+      alert("Demasiado lento 😂");
+    }, 500);
+  });
+</script>
+
+</body>
+</html>
